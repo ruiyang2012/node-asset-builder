@@ -1,0 +1,22 @@
+This package depends on GraphicsMagick, need to install first.
+On Mac: sudo brew install GraphicsMagick
+or build from here: http://www.graphicsmagick.org/
+
+usage:
+
+var NodeAssetBuilder = require("node-asset-builder");
+
+var nsb = new NodeAssetBuilder({
+    imageFolder: '<path to the image>',  // default to ./assets
+    cssFolder: '<path to the css files>', // default to ./stylus
+    tempFolder: '<path to temp>', // default to ./temp
+    contextName: 'context of the hash', // default to OO
+    cssHashName: 'object Name for storing minified css in the json object', // default to stylus_css
+    imgHashName: 'object name for storing datauri of the images in the json object', // default to asset_list
+    outputPath: 'output path for the js file contains css json and datauri json object', // default to src/autogen
+    cssContainerSelector: 'css selector for the root element. can be a class or object name.', // default to #<%= elementId %>
+    __end_marker: 1
+  });
+
+nsb.genImageDataUriHash(); // output js file contains image datauri hash for each image file.
+nsb.genMinifiedCssHash();
