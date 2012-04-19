@@ -2,6 +2,8 @@ This package depends on GraphicsMagick, need to install first.
 On Mac: sudo brew install GraphicsMagick
 or build from here: http://www.graphicsmagick.org/
 
+npm install node-asset-builder
+
 usage:
 
 var NodeAssetBuilder = require("node-asset-builder");
@@ -20,3 +22,7 @@ var nsb = new NodeAssetBuilder({
 
 nsb.genImageDataUriHash(); // output js file contains image datauri hash for each image file.
 nsb.genMinifiedCssHash();
+
+var base64EncodeContent = nsb.fileContentToBase64('file to encode to base 64', 'data uri prefix');
+// will read a file's content, and convert it to base64.
+// nsb.fileContentToBase64("foo.png", "data:image/png;base64,"), will return the datauri string for png file
