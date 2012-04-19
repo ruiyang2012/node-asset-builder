@@ -8,7 +8,7 @@ usage:
 
 var NodeAssetBuilder = require("node-asset-builder");
 
-var nsb = new NodeAssetBuilder({
+var nab = new NodeAssetBuilder({
     imageFolder: '<path to the image>',  // default to ./assets
     cssFolder: '<path to the css files>', // default to ./stylus
     tempFolder: '<path to temp>', // default to ./temp
@@ -20,9 +20,12 @@ var nsb = new NodeAssetBuilder({
     __end_marker: 1
   });
 
-nsb.genImageDataUriHash(); // output js file contains image datauri hash for each image file.
-nsb.genMinifiedCssHash();
+nab.genImageDataUriHash(); // output js file contains image datauri hash for each image file.
+nab.genMinifiedCssHash();
 
-var base64EncodeContent = nsb.fileContentToBase64('file to encode to base 64', 'data uri prefix');
+var base64EncodeContent = nab.fileContentToBase64('file to encode to base 64', 'data uri prefix');
 // will read a file's content, and convert it to base64.
-// nsb.fileContentToBase64("foo.png", "data:image/png;base64,"), will return the datauri string for png file
+// nab.fileContentToBase64("foo.png", "data:image/png;base64,"), will return the datauri string for png file
+
+// return inline minfied css from a full css string.
+var minfiedCss = nab.getMinifiedCssString("#foo { width: 5px; } \n #foo, b { color: black; }", "key")

@@ -1,6 +1,6 @@
 {
   "name": "node-asset-builder",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "dependencies": {
     "underscore": {
       "version": "1.3.2"
